@@ -1,3 +1,4 @@
+import { BudgetItem } from './../../../shared/models/budget-item.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponentComponent implements OnInit {
 
+  budgetItem:BudgetItem[]=new Array<BudgetItem>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  addItem(newItem:BudgetItem){
+    this.budgetItem.push(newItem);
   }
 
 }
