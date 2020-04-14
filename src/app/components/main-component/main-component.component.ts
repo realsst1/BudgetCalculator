@@ -19,4 +19,10 @@ export class MainComponentComponent implements OnInit {
     this.budgetItem.push(newItem);
   }
 
+
+  deleteItem(item:BudgetItem){
+    let getIndex=this.budgetItem.indexOf(item);
+    this.budgetItem.splice(getIndex,1);
+  }
+
 }
