@@ -10,12 +10,22 @@ import { NgForm } from '@angular/forms';
 })
 export class AddItemFormComponent implements OnInit {
 
-  @Input() item:BudgetItem=new BudgetItem("",null);
+  @Input() item:BudgetItem;
   @Output() formSubmit:EventEmitter<BudgetItem>=new EventEmitter<BudgetItem>();
+
+  isNewItem:boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    if(this.item){
+      //this means exisitng object passed
+      this.isNewItem=false;
+    }
+    else{
+      this.isNewItem=true;
+      this.item=new BudgetItem('',null);
+    }
   }
 
   onSubmit(form:NgForm){
